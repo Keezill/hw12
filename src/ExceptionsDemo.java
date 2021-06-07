@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.Objects;
 
 public class ExceptionsDemo {
     public static void main(String[] args) {
@@ -10,24 +8,24 @@ public class ExceptionsDemo {
     }
 
     public static void classCastExceptionDemo() {
-        Object i = new Object();
+        String i = "";
         String s = (String) i;
     }
 
     public static Object nullPointerExceptionDemo() {
-        Object o = null;
+        Object o = new Object();
         return o.hashCode();
     }
 
     private static void numberFormatExceptionDemo() {
-        String s = "number";
+        String s = "123";
         int i = Integer.parseInt(s);
     }
 
     private static void arrayIndexOutOfBoundExceptionDemo() {
         int[] array = new int[2];
         for (int i = 0; i < array.length; i++) {
-            int x = array[i + 1];
+            int x = array[i];
         }
     }
 }
