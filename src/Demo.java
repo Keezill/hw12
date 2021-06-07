@@ -2,9 +2,7 @@ import java.io.*;
 
 public class Demo {
     public static String read(String path) {
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new FileReader(path));
+        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             StringBuilder stringBuilder = new StringBuilder();
             String currentString;
 
@@ -15,14 +13,6 @@ public class Demo {
             return stringBuilder.toString();
         } catch (IOException e) {
             System.out.println("File not found! Change path and try again! " + e.getMessage());
-        } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    System.out.println(e.getMessage());
-                }
-            }
         }
         return null;
     }
